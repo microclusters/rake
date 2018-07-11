@@ -3,9 +3,6 @@
     {
       "image": "ruby:2.0.0",
       "run": [
-        "mkdir -p /usr/src/app",
-        "cd /usr/src/app",
-        "git clone https://github.com/ruby/rake.git .",
         "gem install bundler",
         "bundle install",
         "ruby -Ilib exe/rake"
@@ -14,9 +11,6 @@
     {
       "image": "ruby:2.10.0",
       "run": [
-        "mkdir -p /usr/src/app",
-        "cd /usr/src/app",
-        "git clone https://github.com/ruby/rake.git .",
         "gem install bundler",
         "bundle install",
         "ruby -Ilib exe/rake"
