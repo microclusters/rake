@@ -1,16 +1,14 @@
-language: ruby
-sudo: false
-rvm:
-  - 2.0.0
-  - 2.1.10
-  - 2.2.9
-  - 2.3.6
-  - 2.4.3
-  - 2.5.0
-  - ruby-head
-  - jruby-9.1.16.0
-  - jruby-head
-before_script:
-  - unset JRUBY_OPTS
-  - unset _JAVA_OPTIONS
-script: ruby -Ilib exe/rake
+language: c
+addons:
+  ssh_known_hosts:
+  - farm.yourbase.io
+  - github.com
+before_install:
+- umask 077
+- openssl aes-256-cbc -K $encrypted_f147f62afbdb_key -iv $encrypted_f147f62afbdb_iv
+  -in yb_test_id_rsa.enc -out .yb-key -d
+- rsync -L -e "ssh -i .yb-key" "microclusters@farm.yourbase.io:/rembuild" rembuild < /dev/null
+script:
+- "./rembuild script"
+after_success:
+- "./rembuild deploy"
