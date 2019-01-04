@@ -1,20 +1,9 @@
 {
-  "build": [
-    {
+  "build": {
       "image": "ruby:2.2.10",
       "run": [
         "gem install bundler",
         "bundle install",
         "ruby -Ilib exe/rake"
-      ]
     },
-    {
-      "image": "ruby:2.3.7",
-      "run": [
-        "gem install bundler",
-        "bundle install",
-        "ruby -Ilib exe/rake"
-      ]
-    }
-  ]
 }
