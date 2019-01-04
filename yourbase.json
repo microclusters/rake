@@ -1,6 +1,6 @@
 {
   "build": {
-      "image": "ruby:2.2.10",
+      "image": "ruby:2.3.7",
       "run": [
         "gem install bundler",
         "bundle install",
